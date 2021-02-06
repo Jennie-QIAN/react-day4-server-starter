@@ -8,7 +8,7 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
-
+const cors         = require('cors');
 
 // WHEN INTRODUCING USERS DO THIS:
 // INSTALL THESE DEPENDENCIES: passport-local, passport, bcryptjs, express-session
@@ -66,7 +66,12 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 // ADD CORS SETTINGS HERE TO ALLOW CROSS-ORIGIN INTERACTION:
-
+app.use(
+  cors({
+    credentials: true,
+    origin: ['http://localhost:3000']
+  })
+)
 
 
 // ROUTES MIDDLEWARE STARTS HERE:
